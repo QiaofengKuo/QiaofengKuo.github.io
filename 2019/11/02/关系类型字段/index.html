@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>关系类型字段 - 奔跑の蚂蚁</title>
+
+
+    <meta name="description" content="摘要">
+<meta name="keywords" content="Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关系类型字段">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E5%85%B3%E7%B3%BB%E7%B1%BB%E5%9E%8B%E5%AD%97%E6%AE%B5&#x2F;index.html">
+<meta property="og:site_name" content="奔跑の蚂蚁">
+<meta property="og:description" content="摘要">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-11-01T18:28:19.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+
+
+
+
+
+<link rel="alternative" href="/atom.xml" title="关系类型字段" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/bitbug_favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                奔跑の蚂蚁
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/music">音乐</a>
+                
+                <a class="navbar-item"
+                href="/album">相册</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-01T18:25:20.000Z">2019-11-02</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Django/">Django</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    24 分钟 读完 (大约 3539 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                关系类型字段
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>摘要</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="关系类型字段"><a href="#关系类型字段" class="headerlink" title="关系类型字段"></a>关系类型字段</h1><h2 id="多对一（ForeignKey）"><a href="#多对一（ForeignKey）" class="headerlink" title="多对一（ForeignKey）"></a><strong>多对一（ForeignKey）</strong></h2><p>多对一的关系，通常被称为外键。外键字段类的定义如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForeignKey</span><span class="hljs-params">(to, on_delete, **options)</span>[<span class="hljs-title">source</span>]</span></span><br></pre></td></tr></table></figure>
+<p>外键需要两个位置参数，一个是关联的模型，另一个是on_delete选项。实际上，在目前版本中，ondelete选项也可以不设置，但Django极力反对如此，因此在Django2.0版本后，该选项会设置为必填。</p>
+<p><strong>外键要定义在‘多’的一方！</strong></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    manufacturer = models.ForeignKey(</span><br><span class="line">        <span class="hljs-string">'Manufacturer'</span>,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">    )</span><br><span class="line">    <span class="hljs-comment"># ...</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Manufacturer</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># ...</span></span><br><span class="line">    <span class="hljs-keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>上面的例子中，每辆车都会有一个生产工厂，一个工厂可以生产N辆车，于是用一个外键字段manufacturer表示，并放在Car模型中。注意，此manufacturer非彼Manufacturer模型类，它是一个字段的名称。在Django的模型定义中，经常出现类似的英文单词大小写不同，一定要注意区分！</p>
+<p>如果要关联的对象在另外一个app中，可以显式的指出。下例假设Manufacturer模型存在于production这个app中，则Car模型的定义如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    manufacturer = models.ForeignKey(</span><br><span class="line">        <span class="hljs-string">'production.Manufacturer'</span>,      <span class="hljs-comment"># 关键在这里！！</span></span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<p>如果要创建一个递归的外键，也就是自己关联自己的的外键，使用下面的方法：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">models.ForeignKey(<span class="hljs-string">'self'</span>, on_delete=models.CASCADE)</span><br></pre></td></tr></table></figure>
+<p>核心在于‘self’这个引用。什么时候需要自己引用自己的外键呢？典型的例子就是评论系统！一条评论可以被很多人继续评论，如下所示：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Comment</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="hljs-number">128</span>)</span><br><span class="line">    text = models.TextField()</span><br><span class="line">    parent_comment = models.ForeignKey(<span class="hljs-string">'self'</span>, on_delete=models.CASCADE)</span><br><span class="line">    <span class="hljs-comment"># .....</span></span><br></pre></td></tr></table></figure>
+<p>注意上面的外键字段定义的是父评论，而不是子评论。为什么呢？因为外键要放在‘多’的一方！</p>
+<p>在实际的数据库后台，Django会为每一个外键添加<code>_id</code>后缀，并以此创建数据表里的一列。在上面的工厂与车的例子中，Car模型对应的数据表中，会有一列叫做<code>manufacturer_id</code>。但实际上，在Django代码中你不需要使用这个列名，除非你书写原生的SQL语句，一般我们都直接使用字段名<code>manufacturer</code>。</p>
+<p>关系字段的定义还有个小坑。在后面我们会讲到的<code>verbose_name</code>参数用于设置字段的别名。很多情况下，为了方便，我们都会设置这么个值，并且作为字段的第一位置参数。但是对于关系字段，其第一位置参数永远是关系对象，不能是<code>verbose_name</code>，一定要注意！</p>
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a><strong>参数说明</strong></h3><p>外键还有一些重要的参数，说明如下：<br><strong>on_delete</strong><br><strong>注意：这个参数在Django2.0之后，不可以省略了，需要显式的指定！这也是除了路由编写方式外，Django2和Django1.x最大的不同点之一！</strong></p>
+<p>当一个被外键关联的对象被删除时，Django将模仿<code>on_delete</code>参数定义的SQL约束执行相应操作。比如，你有一个可为空的外键，并且你想让它在关联的对象被删除时，自动设为<code>null</code>，可以如下定义：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user = models.ForeignKey(</span><br><span class="line">    User,</span><br><span class="line">    models.SET_NULL,</span><br><span class="line">    blank=<span class="hljs-literal">True</span>,</span><br><span class="line">    null=<span class="hljs-literal">True</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>该参数可选的值都内置在<code>django.db.models</code>中，包括：</p>
+<ul>
+<li><code>CASCADE：</code>模拟SQL语言中的ON DELETE CASCADE约束，将定义有外键的模型对象同时删除！（该操作为当前Django版本的默认操作！）</li>
+<li><code>PROTECT:</code>阻止上面的删除操作，但是弹出ProtectedError异常</li>
+<li><code>SET_NULL：</code>将外键字段设为null，只有当字段设置了null=True时，方可使用该值。</li>
+<li><code>SET_DEFAULT:</code>将外键字段设为默认值。只有当字段设置了default参数时，方可使用。</li>
+<li><code>DO_NOTHING：</code>什么也不做。</li>
+<li><code>SET()：</code>设置为一个传递给SET()的值或者一个回调函数的返回值。注意大小写。<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf <span class="hljs-keyword">import</span> settings</span><br><span class="line"><span class="hljs-keyword">from</span> django.contrib.auth <span class="hljs-keyword">import</span> get_user_model</span><br><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_sentinel_user</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> get_user_model().objects.get_or_create(username=<span class="hljs-string">'deleted'</span>)[<span class="hljs-number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyModel</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    user = models.ForeignKey(</span><br><span class="line">        settings.AUTH_USER_MODEL,</span><br><span class="line">        on_delete=models.SET(get_sentinel_user),</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>limit_choices_to</strong><br>该参数用于限制外键所能关联的对象，只能用于Django的ModelForm（Django的表单模块）和admin后台，对其它场合无限制功能。其值可以是一个字典、Q对象或者一个返回字典或Q对象的函数调用，如下例所示：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">staff_member = models.ForeignKey(</span><br><span class="line">    User,</span><br><span class="line">    on_delete=models.CASCADE,</span><br><span class="line">    limit_choices_to=&#123;<span class="hljs-string">'is_staff'</span>: <span class="hljs-literal">True</span>&#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这样定义，则ModelForm的staff_member字段列表中，只会出现那些is_staff=True的Users对象，这一功能对于admin后台非常有用。</p>
+<p>可以参考下面的方式，使用函数调用：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">limit_pub_date_choices</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">'pub_date__lte'</span>: datetime.date.utcnow()&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ...</span></span><br><span class="line">limit_choices_to = limit_pub_date_choices</span><br><span class="line"><span class="hljs-comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>related_name</strong></p>
+<p>用于关联对象反向引用模型的名称。以前面车和工厂的例子解释，就是从工厂反向关联到车的关系名称。</p>
+<p>通常情况下，这个参数我们可以不设置，Django会默认以模型的小写加上_set作为反向关联名，比如对于工厂就是car_set，如果你觉得car_set还不够直观，可以如下定义：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    manufacturer = models.ForeignKey(</span><br><span class="line">        <span class="hljs-string">'production.Manufacturer'</span>,      </span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">        related_name=<span class="hljs-string">'car_producted_by_this_manufacturer'</span>,  <span class="hljs-comment"># 看这里！！</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<p>也许我定义了一个蹩脚的词，但表达的意思很清楚。以后从工厂对象反向关联到它所生产的汽车，就可以使用<code>maufacturer.car_producted_by_this_manufacturer</code>了。</p>
+<p>如果你不想为外键设置一个反向关联名称，可以将这个参数设置为“+”或者以“+”结尾，如下所示：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">user = models.ForeignKey(</span><br><span class="line">     User,</span><br><span class="line">    on_delete=models.CASCADE,</span><br><span class="line">    related_name=<span class="hljs-string">'+'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><strong>related_query_name</strong><br>反向关联查询名。用于从目标模型反向过滤模型对象的名称。（过滤和查询在后续章节会介绍）</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tag</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    article = models.ForeignKey(</span><br><span class="line">        Article,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">        related_name=<span class="hljs-string">"tags"</span>,</span><br><span class="line">        related_query_name=<span class="hljs-string">"tag"</span>,       <span class="hljs-comment"># 注意这一行</span></span><br><span class="line">    )</span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">255</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 现在可以使用‘tag’作为查询名了</span></span><br><span class="line">Article.objects.filter(tag__name=<span class="hljs-string">"important"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>to_field</strong><br>默认情况下，外键都是关联到被关联对象的主键上（一般为id）。如果指定这个参数，可以关联到指定的字段上，但是该字段必须具有<code>unique=True</code>属性，也就是具有唯一属性。</p>
+<p><strong>db_constraint</strong><br>默认情况下，这个参数被设为True，表示遵循数据库约束，这也是大多数情况下你的选择。如果设为False，那么将无法保证数据的完整性和合法性。在下面的场景中，你可能需要将它设置为False：</p>
+<ul>
+<li>有历史遗留的不合法数据，没办法的选择</li>
+<li>你正在分割数据表</li>
+</ul>
+<p><strong>swappable</strong><br>控制迁移框架的动作，如果当前外键指向一个可交换的模型。使用场景非常稀少，通常请将该参数保持默认的True。</p>
+<h2 id="多对多（ManyToManyField）"><a href="#多对多（ManyToManyField）" class="headerlink" title="多对多（ManyToManyField）"></a><strong>多对多（ManyToManyField）</strong></h2><p>多对多关系在数据库中也是非常常见的关系类型。比如一本书可以有好几个作者，一个作者也可以写好几本书。多对多的字段可以定义在任何的一方，请尽量定义在符合人们思维习惯的一方，但不要同时都定义。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ManyToManyField</span><span class="hljs-params">(to, **options)</span>[<span class="hljs-title">source</span>]</span></span><br></pre></td></tr></table></figure>
+<p>多对多关系需要一个位置参数：关联的对象模型。它的用法和外键多对一基本类似。</p>
+<p>在数据库后台，Django实际上会额外创建一张用于体现多对多关系的中间表。默认情况下，该表的名称是“多对多字段名+关联对象模型名+一个独一无二的哈希码”，例如‘author_books_9cdf4’，当然你也可以通过db_table选项，自定义表名。</p>
+<h3 id="参数说明-1"><a href="#参数说明-1" class="headerlink" title="参数说明"></a><strong>参数说明</strong></h3><p><strong>related_name</strong><br>参考外键的相同参数。</p>
+<p><strong>related_query_name</strong><br>参考外键的相同参数。</p>
+<p><strong>limit_choices_to</strong><br>参考外键的相同参数。但是对于使用through参数自定义中间表的多对多字段无效。</p>
+<p><strong>symmetrical</strong><br>默认情况下，Django中的多对多关系是对称的。看下面的例子：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    friends = models.ManyToManyField(<span class="hljs-string">"self"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Django认为，如果我是你的朋友，那么你也是我的朋友，这是一种对称关系，Django不会为<code>Person模型</code>添加<code>person_set</code>属性用于反向关联。如果你不想使用这种对称关系，可以将<code>symmetrical</code>设置为<code>False</code>，这将强制<code>Django</code>为反向关联添加描述符。</p>
+<p><strong>through（定义中间表）</strong><br>如果你想自定义多对多关系的那张额外的关联表，可以使用这个参数！参数的值为一个中间模型。</p>
+<p>最常见的使用场景是你需要为多对多关系添加额外的数据，比如两个人建立QQ好友的时间。</p>
+<p>通常情况下，这张表在数据库内的结构是这个样子的：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">中间表的id列....模型对象的id列.....被关联对象的id列</span><br><span class="line"><span class="hljs-comment"># 各行数据</span></span><br></pre></td></tr></table></figure>
+<p>如果自定义中间表并添加时间字段，则在数据库内的表结构如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">中间表的id列....模型对象的id列.....被关联对象的id列.....时间对象列</span><br><span class="line"><span class="hljs-comment"># 各行数据</span></span><br></pre></td></tr></table></figure>
+<p>看下面的例子：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Group</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">128</span>)</span><br><span class="line">    members = models.ManyToManyField(</span><br><span class="line">        Person,</span><br><span class="line">        through=<span class="hljs-string">'Membership'</span>,       <span class="hljs-comment">## 自定义中间表</span></span><br><span class="line">        through_fields=(<span class="hljs-string">'group'</span>, <span class="hljs-string">'person'</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Membership</span><span class="hljs-params">(models.Model)</span>:</span>  <span class="hljs-comment"># 这就是具体的中间表模型</span></span><br><span class="line">    group = models.ForeignKey(Group, on_delete=models.CASCADE)</span><br><span class="line">    person = models.ForeignKey(Person, on_delete=models.CASCADE)</span><br><span class="line">    inviter = models.ForeignKey(</span><br><span class="line">        Person,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">        related_name=<span class="hljs-string">"membership_invites"</span>,</span><br><span class="line">    )</span><br><span class="line">    invite_reason = models.CharField(max_length=<span class="hljs-number">64</span>)</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，通过<code>class Membership(models.Model)</code>定义了一个新的模型，用来保存<code>Person</code>和<code>Group</code>模型的多对多关系，并且同时增加了‘邀请人’和‘邀请原因’的字段。<br><strong>through参数在某些使用场景中是必须的，至关重要，请务必掌握！</strong></p>
+<p><strong>through_fields</strong><br>接着上面的例子。Membership模型中包含两个关联Person的外键，Django无法确定到底使用哪个作为和Group关联的对象。所以，在这个例子中，必须显式的指定through_fields参数，用于定义关系。</p>
+<p><code>through_fields</code>参数接收一个二元元组<code>(&#39;field1&#39;, &#39;field2&#39;)</code>，<code>field1</code>是指向定义有多对多关系的模型的外键字段的名称，这里是<code>Membership</code>中的‘group’字段（注意大小写），另外一个则是指向目标模型的外键字段的名称，这里是<code>Membership</code>中的‘person’，而不是‘inviter’。</p>
+<p>再通俗的说，就是<code>through_fields</code>参数指定从中间表模型<code>Membership</code>中选择哪两个字段，作为关系连接字段。</p>
+<p><strong>db_table</strong><br>设置中间表的名称。不指定的话，则使用默认值。</p>
+<p><strong>db_constraint</strong><br>参考外键的相同参数。</p>
+<p><strong>swappable</strong><br>参考外键的相同参数。</p>
+<p><strong>ManyToManyField多对多字段不支持Django内置的validators验证功能。</strong></p>
+<p><strong>null参数对ManyToManyField多对多字段无效！设置null=True毫无意义</strong></p>
+<h2 id="一对一（OneToOneField）"><a href="#一对一（OneToOneField）" class="headerlink" title="一对一（OneToOneField）"></a><strong>一对一（OneToOneField）</strong></h2><p>一对一关系类型的定义如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OneToOneField</span><span class="hljs-params">(to, on_delete, parent_link=False, **options)</span>[<span class="hljs-title">source</span>]</span></span><br></pre></td></tr></table></figure>
+<p>从概念上讲，一对一关系非常类似具有<code>unique=True</code>属性的外键关系，但是反向关联对象只有一个。这种关系类型多数用于当一个模型需要从别的模型扩展而来的情况。比如，Django自带auth模块的User用户表，如果你想在自己的项目里创建用户模型，又想方便的使用Django的认证功能，那么一个比较好的方案就是在你的用户模型里，使用一对一关系，添加一个与auth模块User模型的关联字段。</p>
+<p>该关系的第一位置参数为关联的模型，其用法和前面的多对一外键一样。</p>
+<p>如果你没有给一对一关系设置<code>related_name</code>参数，Django将使用当前模型的小写名作为默认值。</p>
+<p>看下面的例子：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf <span class="hljs-keyword">import</span> settings</span><br><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 两个字段都使用一对一关联到了Django内置的auth模块中的User模型</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySpecialUser</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    user = models.OneToOneField(</span><br><span class="line">        settings.AUTH_USER_MODEL,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">    )</span><br><span class="line">    supervisor = models.OneToOneField(</span><br><span class="line">        settings.AUTH_USER_MODEL,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">        related_name=<span class="hljs-string">'supervisor_of'</span>,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>这样下来，你的User模型将拥有下面的属性：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; user = User.objects.get(pk=1)</span><br><span class="line">&gt;&gt;&gt; hasattr(user, <span class="hljs-string">'myspecialuser'</span>)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; hasattr(user, <span class="hljs-string">'supervisor_of'</span>)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+<p>OneToOneField一对一关系拥有和多对一外键关系一样的额外可选参数，只是多了一个parent_link参数。</p>
+<p><strong>跨模块的模型：</strong></p>
+<p>有时候，我们关联的模型并不在当前模型的文件内，没关系，就像我们导入第三方库一样的从别的模块内导入进来就好，如下例所示：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"><span class="hljs-keyword">from</span> geography.models <span class="hljs-keyword">import</span> ZipCode</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Restaurant</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># ...</span></span><br><span class="line">    zip_code = models.ForeignKey(</span><br><span class="line">        ZipCode,</span><br><span class="line">        on_delete=models.SET_NULL,</span><br><span class="line">        blank=<span class="hljs-literal">True</span>,</span><br><span class="line">        null=<span class="hljs-literal">True</span>,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<hr>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Django/" rel="tag">Django</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.png" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/02/%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AD%97%E6%AE%B5/">
+                <span class="level-item">模型与字段</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/my_avatar.jpg" alt="北乔峰">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        北乔峰
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        寻找失散多年的阿朱
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>帮派 . 丐帮</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/QiaofengKuo" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/QiaofengKuo">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#关系类型字段">
+        <span class="has-mr-6">1</span>
+        <span>关系类型字段</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#多对一（ForeignKey）">
+        <span class="has-mr-6">1.1</span>
+        <span>多对一（ForeignKey）</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#参数说明">
+        <span class="has-mr-6">1.1.1</span>
+        <span>参数说明</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#多对多（ManyToManyField）">
+        <span class="has-mr-6">1.2</span>
+        <span>多对多（ManyToManyField）</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#参数说明-1">
+        <span class="has-mr-6">1.2.1</span>
+        <span>参数说明</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#一对一（OneToOneField）">
+        <span class="has-mr-6">1.3</span>
+        <span>一对一（OneToOneField）</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.django-rest-framework.org" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">DRF</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.django-rest-framework.org</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://docs.djangoproject.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Django</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">docs.djangoproject.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.linuxcool.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Linux</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.linuxcool.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.markdown.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">MarkDown</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.markdown.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.pexels.com/zh-cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Pexels</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.pexels.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Django/">
+            <span class="level-start">
+                <span class="level-item">Django</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%B3%95%E5%BE%8B/">
+            <span class="level-start">
+                <span class="level-item">法律</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Django/" style="font-size: 20px;">Django</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 10px;">法律</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow  is-sticky">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/02/%E5%85%B3%E7%B3%BB%E7%B1%BB%E5%9E%8B%E5%AD%97%E6%AE%B5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="关系类型字段">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-01T18:25:20.000Z">2019-11-02</time></div>
+                    <a href="/2019/11/02/%E5%85%B3%E7%B3%BB%E7%B1%BB%E5%9E%8B%E5%AD%97%E6%AE%B5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">关系类型字段</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/02/%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AD%97%E6%AE%B5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="模型与字段">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-01T18:24:47.000Z">2019-11-02</time></div>
+                    <a href="/2019/11/02/%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AD%97%E6%AE%B5/" class="title has-link-black-ter is-size-6 has-text-weight-normal">模型与字段</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/25/%E6%A8%A1%E5%9E%8B%E5%B1%82/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://static.zybuluo.com/feixuelove1009/k1s4q20bnmdy1pbn0lxie992/image.png" alt="Django：模型层">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-24T17:19:00.000Z">2019-10-25</time></div>
+                    <a href="/2019/10/25/%E6%A8%A1%E5%9E%8B%E5%B1%82/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django：模型层</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Django/">Django</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/08/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190808215355.png" alt="中华人民共和国网络安全法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-08T13:46:09.000Z">2019-10-08</time></div>
+                    <a href="/2019/10/08/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/" class="title has-link-black-ter is-size-6 has-text-weight-normal">中华人民共和国网络安全法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%B3%95%E5%BE%8B/">法律</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    奔跑の蚂蚁
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 北乔峰&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/QiaofengKuo">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
